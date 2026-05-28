@@ -40,7 +40,7 @@ palette:
     move.l  bm_Planes+4(a2),a4		; Bitplane 1 to a4
 
 yLoop:
-    move.l	#19,d6                  ; x
+    moveq	#19,d6                  ; x
 	
 xLoop:
 	; write data to bitplanes
