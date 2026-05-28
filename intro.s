@@ -1,4 +1,4 @@
-; 256 bytes intro skeleton for Amiga 500
+; 256 bytes intro skeleton for Amiga 500 with KS 1.3
 ; with 140 bytes free for your effect
 ; by Balrog Soft / Amiga Skool
 
