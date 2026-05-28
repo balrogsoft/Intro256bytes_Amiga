@@ -11,7 +11,7 @@
     move.w  #32,$dff096				; Disable mouse pointer
 
     move.l  $170(a2),a6            	; IntuitionBase from globvec
-    move.l  ib_ActiveScreen(a6),a5	; a5 = ActiveScreen (640x240 on most systems)
+    move.l  ib_ActiveScreen(a6),a5	; a5 = ActiveScreen (640x256 on most systems)
 
     move.l  $4.w,a6					; ExecBase
     move.l  156(a6),a6				; graphics.library
