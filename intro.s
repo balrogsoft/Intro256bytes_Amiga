@@ -2,11 +2,14 @@
 ; with 140 bytes free for your effect
 ; by Balrog Soft / Amiga Skool
 
-    incdir  "Dh0:PhxAss/include/"
-	
-    include "graphics/graphics_lib.i"
-    include "graphics/gfxbase.i"
-    include "intuition/screens.i"
+ib_ActiveScreen	EQU 56
+gb_ActiView 	EQU 34
+v_ViewPort 		EQU 0
+vp_RasInfo		EQU 36
+sc_ViewPort		EQU 44
+ri_BitMap		EQU 4
+bm_Planes		EQU 8
+_LVOLoadRGB4    EQU -192
 
     move.w  #32,$dff096				; Disable mouse pointer
 
@@ -21,6 +24,7 @@
     move.l  v_ViewPort(a2),a2		; Get ViewPort
 
     move.l  vp_RasInfo(a2),a2		; Get RasInfo
+
     move.l  ri_BitMap(a2),a2		; Get screen Bitmap
 
     ;lea     sc_ViewPort(a5),a0		; Set colors
@@ -29,14 +33,14 @@
     ;jsr     _LVOLoadRGB4(a6)
 	
 frameloop:
-    move.l  #255,d7               ; y
+    move.l  #255,d7                 ; y
 
 palette:
     move.l  bm_Planes(a2),a3		; Bitplane 0 to a3
     move.l  bm_Planes+4(a2),a4		; Bitplane 1 to a4
 
 yLoop:
-    move.w	#19,d6                 ; x
+    move.w	#19,d6                  ; x
 	
 xLoop:
 	; write data to bitplanes
@@ -48,6 +52,6 @@ xLoop:
     dbra	d7,yLoop
 	
 	btst	#6,$bfe001				; Check for mouse left click button to exit
-    bne.s	frameloop
+    bne.s   frameloop
 	moveq	#0,d0
     rts
