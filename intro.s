@@ -1,5 +1,5 @@
 ; 256 bytes intro skeleton for Amiga 500
-; with 132 bytes free for your effect
+; with 140 bytes free for your effect
 ; by Balrog Soft / Amiga Skool
 
     incdir  "Dh0:PhxAss/include/"
@@ -15,9 +15,6 @@
 
     move.l  $4.w,a6					; ExecBase
     move.l  156(a6),a6				; graphics.library
-
-    lea     sc_RastPort(a5),a1		; Call to clear screen
-    jsr 	_LVOClearScreen(a6)
 
     move.l  gb_ActiView(a6),a2		; Get ActiveView
 
