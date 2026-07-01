@@ -1,5 +1,5 @@
 ; 256 bytes intro skeleton for Amiga 500 with KS 1.3
-; with 160 bytes free for your effect
+; with 164 bytes free for your effect
 ; by Balrog Soft / Amiga Skool
 
 ib_ActiveScreen	EQU 56
@@ -15,8 +15,7 @@ bm_Planes		EQU 8
 frameloop:
     move.w  #255,d7               	; y
 
-    move.l  bm_Planes(a0),a3        ; Bitplane 0 to a3
-    move.l  bm_Planes+4(a0),a4      ; Bitplane 1 to a4
+    movem.l     bm_Planes(a2),a3-a4
 
 yLoop:
     moveq   #19,d6                  ; x
