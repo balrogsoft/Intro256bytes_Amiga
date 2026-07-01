@@ -15,7 +15,7 @@ bm_Planes		EQU 8
 frameloop:
     move.w  #255,d7               	; y
 
-    movem.l     bm_Planes(a2),a3-a4
+    movem.l     bm_Planes(a0),a3-a4
 
 yLoop:
     moveq   #19,d6                  ; x
